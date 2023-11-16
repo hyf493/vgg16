@@ -11,7 +11,7 @@ from torch.autograd import Variable
 from tqdm import tqdm
 
 import utils
-import model.net as net
+import model.vgg16 as net
 import model.data_loader as data_loader
 from evaluate import evaluate
 
@@ -196,7 +196,7 @@ if __name__ == '__main__':
     logging.info("- done.")
 
     # Define the model and optimizer  定义模型和优化器
-    model = net.Net(params).cuda() if params.cuda else net.Net(params)
+    model = net.vgg16(params).cuda() if params.cuda else net.vgg16(params)
     optimizer = optim.Adam(model.parameters(), lr=params.learning_rate)
 
     # fetch loss function and metrics
