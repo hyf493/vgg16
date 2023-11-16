@@ -56,9 +56,10 @@ class vgg16(nn.Module):
             nn.Linear(512 * 7 * 7, 4096),
             nn.ReLU(inplace=True),
             nn.Dropout(),
-            nn.Linear(4096, 1000),
+            nn.Linear(4096, 4096),
             nn.ReLU(inplace=True),
             nn.Dropout(),
+            nn.Linear(4096, 1000),
             nn.Linear(1000, num_classes)
         )
 
